@@ -1,0 +1,5 @@
+.vagrant/
+.idea/
+log/
+user-data
+config.rb
