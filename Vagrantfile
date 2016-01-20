@@ -77,7 +77,7 @@ Vagrant.configure("2") do | config |
   end
 
   ## plugin conflict
-  if Vagrant.has_plugin ? ("vagrant-vbguest") then
+  if Vagrant.has_plugin?("vagrant-vbguest") then
     config.vbguest.auto_update = false
   end
 
@@ -145,11 +145,7 @@ Vagrant.configure("2") do | config |
         ip: ip
 
       ## Uncomment below to enable NFS for sharing the host machine into the coreos-vagrant VM.
-      #config.vm.synced_folder ".",
-        "/home/core/share",
-        id:               "core",
-        :nfs              => true,
-        :mount_options    => ['nolock,vers=3,udp']
+      #config.vm.synced_folder ".", "/home/core/share", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
 
       $shared_folders.each_with_index do | (host_folder, guest_folder), index |
         config.vm.synced_folder host_folder.to_s,
